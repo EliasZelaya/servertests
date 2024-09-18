@@ -1,0 +1,639 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-image: url("../img/dark-souls-background.jpg");
+  /* Se le indica que utilice todo el alto de la pantalla para que el tamanio no dependa del contenido que este en la pagina */
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Agragando border box a todos los elementos para que no se desborden */
+* {
+  box-sizing: border-box;
+}
+
+/* Header Section */
+.title {
+  font-size: 22px;
+  background: linear-gradient(to right, #FF7F50, #40E0D0);
+  /* Rectorta el color del fondo al area del texto*/
+  -webkit-background-clip: text;
+  /* Se hace transparente el texto para que se vea el recorte
+  del degradado con los   colores */
+  -webkit-text-fill-color: transparent;
+}
+
+.header-section {
+  background-color: #2C3E50;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  padding: 10px;
+}
+
+.icon-page {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-menu {
+  margin: 0 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
+  gap: 5px;
+  align-items: center;
+}
+
+.bar {
+  width: 20px;
+  border: 1.5px solid #fff;
+  border-radius: 20px;
+}
+
+.search-section {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: center;
+  position: absolute;
+  left: 30vw;
+}
+
+hr {
+  margin: 0;
+}
+
+.profile-img {
+  background-color: #71839b;
+  padding: 10px;
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  /* alinea el elemento al final del eje horizontal... */
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.search-section input {
+  height: 35px;
+  width: 30vw;
+  border-radius: 50px;
+  padding: 20px;
+  border: 3px inset #000;
+}
+
+/* Navigation Section */
+
+.button-menu {
+  margin: 0 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.bar {
+  width: 20px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.menu {
+  background-color: #fff;
+  position: absolute;
+  top: 5.5%;
+  left: 1%;
+  opacity: 0;
+  z-index: 5;
+  display: none;
+  transition: opacity 0.5s ease, display 0s 0.5s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+.menu li {
+  margin: 10px 0;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #ff076e;
+}
+
+.button-menu:hover + .menu, menu:hover {
+  opacity: 1;
+  display: block;
+  transition: opacity 0.5s ease;
+}
+
+/* Main Section */
+
+.background-overlay {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #000a;
+  /* Le da efecto de difuminado al fondo */
+  backdrop-filter: blur(5px);
+  z-index: 1;
+}
+
+/* Highlights Section */
+.highlights-section {
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #000a;
+  border-radius: 20px;
+}
+
+.highlights-section>.highlight-item:nth-child(2n) {
+  gap: 20px;
+}
+
+.highlight-img {
+  border-radius: 20px;
+  width: 200px;
+}
+
+.highlight-title,
+.highlight-img-title,
+.platforms-title {
+  display: block;
+  background: linear-gradient(to right, #6627f8, #ff076e, #6627f8, #6627f8);
+  width: 80vw;
+  margin: 70px 50px;
+  font-size: 3vw;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.highlight-item {
+  justify-self: center;
+  text-align: center;
+  transition: transform 0.5s;
+  border-radius: 20px;
+}
+
+.highlight-item:hover {
+  transform: scale(1.1);
+
+  img {
+    box-shadow: 0 0 40px -10px #8d8888;
+  }
+}
+
+.highlight-item>h3 {
+  background: linear-gradient(to right, #31d6ff, #ff0798);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: 200px;
+  font-size: 25px;
+}
+
+/* Slider Section */
+
+.highlight-img-section {
+  display: flex;
+  align-items: center;
+  width: 75vw;
+  margin: auto;
+  background-color: #0008;
+  padding: 50px 0;
+  border-radius: 20px;
+}
+
+.highlight-img-item {
+  width: 100%;
+}
+
+.slider-box {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 50vw;
+  border-radius: 20px;
+}
+
+.slider-box ul {
+  position: relative;
+  display: flex;
+  animation: slide 10s infinite alternate linear;
+  width: 600%;
+  padding: 0;
+  margin: 0;
+  border-radius: 20px;
+}
+
+.slider-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Platforms Section */
+
+/* Para darle la animacion de crecimiento a las imagenes de las plataformas */
+.platform-description-container>img {
+  animation: grow 1.5s infinite alternate linear;
+}
+
+/* Paara darle un tamano fijo al texto y asi haga wrap cuando se reduce el tamano de la pantalla */
+
+
+/* Estilo a las pequenas descripciones de las companias de las plataformas */
+.platform-description-container {
+  width: 75%;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  text-wrap: pretty;
+  gap: 50px;
+  margin: 80px 0;
+}
+
+.platform-logo {
+  width: 400px;
+  height: 250px;
+  margin: auto;
+  border-radius: 20px;
+}
+
+#nintendo-platform {
+  background: linear-gradient(to right, #f00, #fff, #f00);
+  width: 245px;
+  padding: 10px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.platform {
+  margin: auto;
+  font-size: 54px;
+  text-shadow: 0 0 100px #fff;
+}
+
+/* Para hacer cambio al segundo elemento que tenga la clase platform */
+#playstation-platform {
+  background: linear-gradient(to right, #003087, #caccce, #0070D1);
+  width: 305px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#pc-platform {
+  text-align: center;
+  margin: auto;
+}
+
+.company-description {
+  width: 400px;
+  font-size: 20px;
+}
+
+.platforms-section {
+  width: 80vw;
+  margin: 5% auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: #000a;
+  border-radius: 20px;
+  overflow-wrap: break-word;
+}
+
+.platforms-container {
+  margin: 0 0 70px 0;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+}
+
+.videogame-description {
+  width: 70%;
+  position: absolute;
+  color: #fff;
+  top: 50%;
+  left: 14%;
+  text-wrap: pretty;
+  margin: 0 auto;
+  transform: translateY(-50%);
+  color: #000;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
+  font-weight: 700;
+  text-shadow: 0 0 5px #8f408f;
+  font-size: 16px;
+}
+
+.platforms-item {
+  position: relative;
+}
+
+.platforms-item>img {
+  width: 350px;
+  transition: transform 1s ease, filter 1s ease;
+}
+
+.platforms-item:hover {
+  .platforms-img {
+    transform: perspective(500px) rotateY(180deg);
+    filter: blur(15px);
+  }
+
+  .videogame-description {
+    opacity: 1;
+    transform: translateY(-50%) perspective(500px) rotateY(360deg)
+  }
+}
+
+/* Form Section */
+
+.form-text {
+  color: #c4c1c1;
+  font-size: 18px;
+  width: 60%;
+  text-wrap: pretty;
+  margin: 20px auto;
+  text-align: center;
+  text-shadow: 0 0 10px #fff;
+}
+
+.form-section {
+  background-color: #000b;
+  padding: 20px;
+  border-radius: 15px;
+  width: 50%;
+  margin: 30px auto;
+  box-shadow: 0 0 20px #fff2;
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-section label {
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-section input,
+.form-section textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: #2c3e50;
+  border: 1px solid #8a8d8f;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  box-shadow: 0 0 10px #000a;
+  transition: border-color 0.3s ease;
+}
+
+.form-section input:focus,
+.form-section textarea:focus {
+  border-color: #ff076e;
+  outline: none;
+}
+
+.form-section textarea {
+  height: 150px;
+  resize: none;
+}
+
+.form-section input[type="submit"] {
+  background: linear-gradient(to right, #6627f8, #ff076e);
+  color: #fff;
+  width: 30vw;
+  margin: auto;
+  padding: 12px 0;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+/* Footer Section */
+
+.footer-section {
+  background-color: #000d;
+  color: #fff;
+  padding: 30px 0;
+  text-align: center;
+  box-shadow: 0 -5px 20px #0006;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #fff2;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.footer-logo h2 {
+  background: linear-gradient(to right, #FF7F50, #40E0D0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 24px;
+}
+
+
+/* Keyframes Section */
+
+@keyframes grow {
+  0% {
+    transform: scale(1.0);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1.0);
+  }
+}
+
+@keyframes slide {
+  0% {
+    margin-left: 0;
+  }
+
+  20% {
+    margin-left: 0;
+  }
+
+  30% {
+    margin-left: -100%;
+  }
+
+  40% {
+    margin-left: -100%;
+  }
+
+  45% {
+    margin-left: -200%;
+  }
+
+  55% {
+    margin-left: -200%;
+  }
+
+  60% {
+    margin-left: -300%;
+  }
+
+  70% {
+    margin-left: -300%;
+  }
+
+  75% {
+    margin-left: -400%;
+  }
+
+  85% {
+    margin-left: -400%;
+  }
+
+  90% {
+    margin-left: -500%;
+  }
+
+  100% {
+    margin-left: -500%;
+  }
+
+}
+
+/* Media querys section */
+@media (max-width: 1200px) {
+
+  .highlight-title,
+  .highlight-img-title,
+  .platforms-title {
+    font-size: 5vw;
+  }
+}
+
+@media (max-width: 1000px) {
+  .search-section {
+    left: 45vw;
+  }
+
+  /* Aumentando el tamano del texto de cada seccion para que se vea bien en
+  dispositivos pequenos */
+  .highlight-title,
+  .highlight-img-title,
+  .platforms-title {
+    margin: 100px auto 50px;
+    font-size: 7vw;
+    text-align: center;
+  }
+
+  .platform-logo {
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 650px) {
+
+  .highlight-title,
+  .platforms-title {
+    font-size: 13vw;
+  }
+
+  .highlight-img-title {
+    font-size: 10vw;
+  }
+
+  .search-section {
+    display: none;
+  }
+
+  .background-slider {
+    height: 60vh;
+  }
+
+  .slider-box {
+    width: 70vw;
+  }
+
+  .header-section {
+    justify-content: center;
+  }
+
+  .highlights-section {
+    gap: 40px;
+  }
+
+  .highlight-img-section {
+    width: 90vw;
+  }
+
+  .platforms-section {
+    width: 80vw;
+  }
+
+  .platform-logo {
+    width: 230px;
+    height: 150px;
+  }
+
+  .platforms-item>img {
+    width: 250px;
+  }
+
+  #nintendo-platform,
+  #playstation-platform {
+    font-size: 42px;
+    text-align: center;
+  }
+}
